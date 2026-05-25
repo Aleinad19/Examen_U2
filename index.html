@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio | Ingeniería de Sistemas</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts - se usarán en el CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar">
+    <div class="navbar__logo">
+      <span class="navbar__logo-icon">🐱</span>
+      <span class="navbar__logo-text">mi.portafolio</span>
+    </div>
+
+    <nav class="navbar__nav">
+      <ul class="navbar__list">
+        <li><a href="#inicio" class="navbar__link">Inicio</a></li>
+        <li><a href="#sobre-mi" class="navbar__link">Sobre mí</a></li>
+        <li><a href="#habilidades" class="navbar__link">Habilidades</a></li>
+        <li><a href="#proyectos" class="navbar__link">Proyectos</a></li>
+        <li><a href="#contacto" class="navbar__link navbar__link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón menú hamburguesa (visible en móvil) -->
+    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ========== SECCIÓN INICIO / HERO ========== -->
+    <section id="inicio" class="hero">
+      <div class="hero__content">
+        <p class="hero__greeting">Hola, soy</p>
+        <h1 class="hero__name">
+
+          <span class="hero__name-highlight">Daniela Daza</span>
+        </h1>
+        <h2 class="hero__role">Estudiante de Ingeniería de Sistemas</h2>
+        <p class="hero__description">
+          Apasionada por la tecnología, la música y los videojuegos. 
+          Explorando el mundo del desarrollo, las redes y las bases de datos 
+          desde la <strong>UNHEVAL</strong>. 🎮🎸🐢
+        </p>
+        <div class="hero__actions">
+          <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+          <a href="#contacto" class="btn btn--secondary">Contáctame</a>
+        </div>
+      </div>
+
+      <!-- Decoración / ilustración del lado derecho -->
+      <div class="hero__visual">
+        <div class="hero__avatar-container">
+          <!-- Aquí puedes poner tu foto: <img src="assets/img/avatar.png" alt="Mi foto" class="hero__avatar" /> -->
+          <div class="hero__avatar-placeholder">
+            <span class="hero__avatar-emoji">👾</span>
+          </div>
+          <!-- Elementos decorativos flotantes -->
+          <div class="hero__deco hero__deco--cat">🐱</div>
+          <div class="hero__deco hero__deco--turtle">🐢</div>
+          <div class="hero__deco hero__deco--music">🎸</div>
+          <div class="hero__deco hero__deco--code">💻</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN SOBRE MÍ ========== -->
+    <section id="sobre-mi" class="about">
+      <div class="section__header">
+        <span class="section__tag">// 01</span>
+        <h2 class="section__title">Sobre mí</h2>
+      </div>
+
+      <div class="about__content">
+        <div class="about__text">
+          <p>
+            Soy estudiante de <strong>Ingeniería de Sistemas en la UNHEVAL</strong>, 
+            con curiosidad por todo lo que tiene que ver con tecnología. 
+            Me emociona tanto programar como entender cómo funcionan las redes, 
+            diseñar bases de datos o analizar sistemas.
+          </p>
+          <p>
+            Fuera del campus, me encontrarás escuchando rock o pop, 
+            jugando videojuegos en línea o cuidando a mis gatos y tortugas 🐱🐢. 
+            Creo que la creatividad y la lógica van de la mano.
+          </p>
+          <p>
+            Todavía estoy definiendo mi especialidad, y eso me parece lo mejor: 
+            tengo un mapa enorme por explorar.
+          </p>
+        </div>
+
+        <!-- Tarjetas de datos personales / curiosidades -->
+        <div class="about__cards">
+          <div class="about__card">
+            <span class="about__card-icon">🎓</span>
+            <p class="about__card-label">Universidad</p>
+            <p class="about__card-value">UNHEVAL</p>
+          </div>
+          <div class="about__card">
+            <span class="about__card-icon">📍</span>
+            <p class="about__card-label">Carrera</p>
+            <p class="about__card-value">Ing. de Sistemas</p>
+          </div>
+          <div class="about__card">
+            <span class="about__card-icon">🎮</span>
+            <p class="about__card-label">Hobby</p>
+            <p class="about__card-value">Videojuegos online</p>
+          </div>
+          <div class="about__card">
+            <span class="about__card-icon">🎵</span>
+            <p class="about__card-label">Música</p>
+            <p class="about__card-value">Rock & Pop</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN HABILIDADES ========== -->
+    <section id="habilidades" class="skills">
+      <div class="section__header">
+        <span class="section__tag">// 02</span>
+        <h2 class="section__title">Habilidades</h2>
+      </div>
+
+      <div class="skills__content">
+
+        <!-- Categoría: Programación -->
+        <div class="skills__category">
+          <h3 class="skills__category-title">
+            <span>💻</span> Programación
+          </h3>
+          <div class="skills__list">
+            <div class="skill-item" data-level="70">
+              <span class="skill-item__name">Python</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-level="60">
+              <span class="skill-item__name">Java</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-level="55">
+              <span class="skill-item__name">HTML / CSS</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+            <!-- Agrega o quita habilidades según las tuyas -->
+          </div>
+        </div>
+
+        <!-- Categoría: Redes -->
+        <div class="skills__category">
+          <h3 class="skills__category-title">
+            <span>🌐</span> Redes & Sistemas
+          </h3>
+          <div class="skills__list">
+            <div class="skill-item" data-level="65">
+              <span class="skill-item__name">Redes TCP/IP</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-level="50">
+              <span class="skill-item__name">Linux</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-level="45">
+              <span class="skill-item__name">Docker</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría: Bases de Datos -->
+        <div class="skills__category">
+          <h3 class="skills__category-title">
+            <span>🗄️</span> Bases de Datos
+          </h3>
+          <div class="skills__list">
+            <div class="skill-item" data-level="60">
+              <span class="skill-item__name">MySQL</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-level="40">
+              <span class="skill-item__name">PostgreSQL</span>
+              <div class="skill-item__bar">
+                <div class="skill-item__fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría: Herramientas -->
+        <div class="skills__category">
+          <h3 class="skills__category-title">
+            <span>🛠️</span> Herramientas
+          </h3>
+          <div class="skills__tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Packet Tracer</span>
+            <!-- Agrega las tuyas -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN PROYECTOS ========== -->
+    <section id="proyectos" class="projects">
+      <div class="section__header">
+        <span class="section__tag">// 03</span>
+        <h2 class="section__title">Proyectos</h2>
+      </div>
+
+      <!-- Filtros de proyectos (JS los activará) -->
+      <div class="projects__filters">
+        <button class="filter-btn filter-btn--active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="bd">Base de datos</button>
+        <button class="filter-btn" data-filter="redes">Redes</button>
+      </div>
+
+      <!-- Grid de tarjetas de proyectos -->
+      <div class="projects__grid">
+
+        <!-- Proyecto 1 -->
+        <article class="project-card" data-category="web">
+          <div class="project-card__image">
+            <!-- <img src="assets/img/proyecto1.png" alt="Proyecto 1" /> -->
+            <div class="project-card__image-placeholder">🌐</div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Web</span>
+            <h3 class="project-card__title">Mi Portafolio</h3>
+            <p class="project-card__desc">
+              Portafolio personal construido con HTML, CSS y JavaScript. 
+              Desplegado con Docker y alojado en GitHub.
+            </p>
+            <div class="project-card__techs">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>Docker</span>
+            </div>
+            <div class="project-card__links">
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">
+                🔗 Ver proyecto
+              </a>
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">
+                💾 GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 2 (plantilla — reemplázalo con los tuyos) -->
+        <article class="project-card" data-category="bd">
+          <div class="project-card__image">
+            <div class="project-card__image-placeholder">🗄️</div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Base de datos</span>
+            <h3 class="project-card__title">Sistema de Inventario</h3>
+            <p class="project-card__desc">
+              Diseño e implementación de base de datos relacional 
+              para gestión de inventario universitario.
+            </p>
+            <div class="project-card__techs">
+              <span>MySQL</span>
+              <span>Python</span>
+            </div>
+            <div class="project-card__links">
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">
+                💾 GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 3 (plantilla) -->
+        <article class="project-card" data-category="redes">
+          <div class="project-card__image">
+            <div class="project-card__image-placeholder">🌐</div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Redes</span>
+            <h3 class="project-card__title">Simulación de Red LAN</h3>
+            <p class="project-card__desc">
+              Diseño y simulación de una red LAN empresarial 
+              con VLANs y routing estático en Packet Tracer.
+            </p>
+            <div class="project-card__techs">
+              <span>Packet Tracer</span>
+              <span>TCP/IP</span>
+            </div>
+            <div class="project-card__links">
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">
+                💾 GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN CONTACTO ========== -->
+    <section id="contacto" class="contact">
+      <div class="section__header">
+        <span class="section__tag">// 04</span>
+        <h2 class="section__title">Contacto</h2>
+      </div>
+
+      <div class="contact__content">
+        <div class="contact__text">
+          <p>¿Quieres colaborar, tienes algún proyecto o simplemente quieres saludar? 
+          ¡Escríbeme! 💌</p>
+
+          <!-- Links de redes sociales -->
+          <div class="contact__socials">
+            <a href="#" class="contact__social-link" target="_blank" rel="noopener" aria-label="GitHub">
+              <!-- Icono GitHub (SVG inline) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="#" class="contact__social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="mailto:tuemail@ejemplo.com" class="contact__social-link" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              Email
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="contact__form-wrapper">
+          <form class="contact__form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name" class="form-label">Nombre</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-input" 
+                placeholder="¿Cómo te llamas?" 
+                required 
+              />
+              <span class="form-error" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="tu@email.com" 
+                required 
+              />
+              <span class="form-error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                class="form-input form-textarea" 
+                placeholder="¿En qué puedo ayudarte?" 
+                rows="5" 
+                required
+              ></textarea>
+              <span class="form-error" id="messageError"></span>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              Enviar mensaje 🚀
+            </button>
+
+            <!-- Mensaje de éxito (JS lo mostrará) -->
+            <div class="form-success" id="formSuccess" hidden>
+              ¡Mensaje enviado! Te responderé pronto 🐱✨
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer__content">
+      <p class="footer__text">
+        Hecho con 🐱 y mucho café · 
+        <span id="currentYear"></span>
+      </p>
+      <p class="footer__sub">
+        Diseñado y desarrollado por <strong>Daniela Daza</strong>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+
+</body>
+</html>
