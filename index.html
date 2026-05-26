@@ -3,362 +3,681 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Portafolio | Ingeniería de Sistemas</title>
+  <title>Daniela Sarene Daza Lorenzo | Ing. de Sistemas</title>
+  <meta name="description" content="Portafolio de Daniela Sarene Daza Lorenzo — Estudiante de Ingeniería de Sistemas en la UNHEVAL. Desarrolladora, gamer y apasionada de la tecnología." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ========== CURSOR PERSONALIZADO ========== -->
+  <!-- ═══════════════════════════════════════
+       CURSOR PERSONALIZADO
+  ═══════════════════════════════════════ -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
 
-  <!-- ========== LOADER ========== -->
+  <!-- ═══════════════════════════════════════
+       LOADER
+  ═══════════════════════════════════════ -->
   <div class="loader" id="loader">
     <div class="loader__inner">
-      <span class="loader__emoji">🐱</span>
+      <div class="loader__logo">
+        <span class="loader__cat">🐱</span>
+        <span class="loader__brand">daza.dev</span>
+      </div>
       <div class="loader__bar"><div class="loader__fill"></div></div>
+      <p class="loader__text">Cargando portafolio...</p>
+    </div>
+    <div class="loader__particles">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
     </div>
   </div>
 
-  <!-- ========== NAVBAR ========== -->
-  <header class="navbar" id="navbar">
-    <div class="navbar__logo">
-      <span class="navbar__logo-icon">🐱</span>
-      <span class="navbar__logo-text">mi.portafolio</span>
-    </div>
+  <!-- ═══════════════════════════════════════
+       FONDO DE PARTÍCULAS
+  ═══════════════════════════════════════ -->
+  <canvas id="particlesCanvas"></canvas>
 
-    <nav class="navbar__nav">
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <a href="#inicio" class="navbar__logo">
+      <span class="navbar__logo-icon">🐱</span>
+      <span class="navbar__logo-text">daza<span class="navbar__logo-accent">.dev</span></span>
+    </a>
+
+    <nav class="navbar__nav" id="navMenu">
       <ul class="navbar__list">
-        <li><a href="#inicio"      class="navbar__link">Inicio</a></li>
-        <li><a href="#sobre-mi"    class="navbar__link">Sobre mí</a></li>
-        <li><a href="#habilidades" class="navbar__link">Habilidades</a></li>
-        <li><a href="#proyectos"   class="navbar__link">Proyectos</a></li>
-        <li><a href="#contacto"    class="navbar__link navbar__link--cta">Contacto</a></li>
+        <li><a href="#inicio"          class="navbar__link" data-section="inicio">Inicio</a></li>
+        <li><a href="#sobre-mi"        class="navbar__link" data-section="sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades"     class="navbar__link" data-section="habilidades">Skills</a></li>
+        <li><a href="#trayectoria"     class="navbar__link" data-section="trayectoria">Timeline</a></li>
+        <li><a href="#proyectos"       class="navbar__link" data-section="proyectos">Proyectos</a></li>
+        <li><a href="#certificaciones" class="navbar__link" data-section="certificaciones">Certs</a></li>
+        <li><a href="#contacto"        class="navbar__link navbar__link--cta" data-section="contacto">Contacto</a></li>
       </ul>
     </nav>
 
     <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </header>
 
   <main>
 
-    <!-- ========== HERO ========== -->
+    <!-- ═══════════════════════════════════════
+         01 · HERO
+    ═══════════════════════════════════════ -->
     <section id="inicio" class="hero">
+
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__orb hero__orb--3"></div>
+
       <div class="hero__content">
         <p class="hero__greeting">
           <span class="hero__greeting-wave">👋</span> Hola, soy
         </p>
         <h1 class="hero__name">
-          <span class="hero__name-highlight" id="heroName">Tu Nombre</span>
+          Daniela<br />
+          <span class="hero__name-highlight">Daza</span>
+          <span class="hero__name-last"> Lorenzo</span>
         </h1>
-        <!-- El JS cambiará este texto con efecto typing -->
-        <h2 class="hero__role">
-          <span id="typingText"></span><span class="typing-cursor">|</span>
-        </h2>
+
+        <div class="hero__role">
+          <span class="hero__role-prefix">&gt;_</span>
+          <span id="typingText"></span>
+          <span class="typing-cursor">|</span>
+        </div>
+
         <p class="hero__description">
-          Apasionada por la tecnología, la música y los videojuegos.
-          Explorando el mundo del desarrollo, las redes y las bases de datos
-          desde la <strong>UNHEVAL</strong>. 🎮🎸🐢
+          Estudiante de <strong>Ingeniería de Sistemas</strong> en la UNHEVAL.
+          Apasionada por el código, las redes, los videojuegos y la música.
+          Construyendo el futuro una línea a la vez. 🎮🎸🐢
         </p>
+
         <div class="hero__actions">
           <a href="#proyectos" class="btn btn--primary">
             <span>Ver proyectos</span>
             <span class="btn__arrow">→</span>
           </a>
           <a href="#contacto" class="btn btn--secondary">Contáctame</a>
-          <!-- ===== BOTÓN DESCARGAR CV ===== -->
-          <a href="assets/cv/cv.pdf" download class="btn btn--cv" aria-label="Descargar CV">
-            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            Descargar CV
+
+          <!-- ── CV: Descargar + Vista previa ── -->
+          <div class="cv-preview-wrapper">
+            <a href="assets/docs/cv.pdf" download class="btn btn--cv" aria-label="Descargar CV">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Descargar CV
+            </a>
+            <button class="btn--cv-preview" data-cv-preview="assets/docs/cv.pdf" aria-label="Vista previa CV">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Vista previa
+            </button>
+          </div>
+        </div>
+
+        <!-- Redes sociales hero -->
+        <div class="hero__socials">
+          <a href="https://github.com/Aleinad19" class="hero__social" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/daniela-sarene-daza-lorenzo-758678352/" class="hero__social" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:dazalorenzodanielasarene@gmail.com" class="hero__social" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@jajabdjwbd?is_from_webapp=1&sender_device=pc" class="hero__social" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.115V2h-3.193v13.766c0 1.303-1.04 2.357-2.347 2.357-1.307 0-2.347-1.054-2.347-2.357 0-1.304 1.04-2.358 2.347-2.358.244 0 .478.037.699.105V10.26a5.54 5.54 0 0 0-.699-.044C7.067 10.216 4.5 12.77 4.5 15.96c0 3.19 2.567 5.744 5.779 5.744 3.212 0 5.779-2.554 5.779-5.744V9.39a8.003 8.003 0 0 0 4.442 1.346V7.562a4.78 4.78 0 0 1-.911-.876z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/aleinad1918/" class="hero__social" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 1.5h8.5A4.24 4.24 0 0 1 20.5 7.75v8.5a4.24 4.24 0 0 1-4.25 4.25h-8.5A4.24 4.24 0 0 1 3.5 16.25v-8.5A4.24 4.24 0 0 1 7.75 3.5zm8.75 1.25a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5A3.5 3.5 0 1 1 8.5 12 3.49 3.49 0 0 1 12 8.5z"/></svg>
+          </a>
+          <a href="https://discord.gg/Uzkaa9cTk" class="hero__social" target="_blank" rel="noopener" aria-label="Discord">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.345-.404.81-.554 1.17a18.27 18.27 0 0 0-5.661 0c-.15-.36-.368-.825-.56-1.17a19.736 19.736 0 0 0-4.438 1.372C1.533 9.046.653 13.58 1.099 18.057a19.9 19.9 0 0 0 5.993 3.03c.484-.66.913-1.357 1.287-2.092a12.89 12.89 0 0 1-2.024-.978c.17-.123.336-.252.496-.387 3.909 1.84 8.15 1.84 12.012 0 .16.135.326.264.496.387a12.83 12.83 0 0 1-2.03.981c.374.732.803 1.429 1.287 2.089a19.848 19.848 0 0 0 6.003-3.03c.523-5.177-.89-9.67-3.682-13.688zM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.418 0-1.334.955-2.419 2.157-2.419 1.212 0 2.167 1.095 2.157 2.419 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.182 0-2.157-1.085-2.157-2.418 0-1.334.955-2.419 2.157-2.419 1.212 0 2.167 1.095 2.157 2.419 0 1.333-.945 2.418-2.157 2.418z"/></svg>
+          </a>
+          <a href="https://web.facebook.com/danielasarene.dazalorenzo.1?locale=es_LA" class="hero__social" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.563 9.88v-6.99H7.898V12h2.539V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.99A10.002 10.002 0 0 0 22 12z"/></svg>
           </a>
         </div>
 
-        <!-- Estadísticas rápidas -->
+        <!-- Estadísticas -->
         <div class="hero__stats">
           <div class="hero__stat">
             <span class="hero__stat-number" data-target="3">0</span>
+            <span class="hero__stat-suffix">+</span>
             <span class="hero__stat-label">Años estudiando</span>
           </div>
+          <div class="hero__stat-divider"></div>
           <div class="hero__stat">
             <span class="hero__stat-number" data-target="12">0</span>
+            <span class="hero__stat-suffix">+</span>
             <span class="hero__stat-label">Proyectos</span>
           </div>
+          <div class="hero__stat-divider"></div>
           <div class="hero__stat">
-            <span class="hero__stat-number" data-target="5">0</span>
-            <span class="hero__stat-label">Tecnologías</span>
+            <span class="hero__stat-number" data-target="9">0</span>
+            <span class="hero__stat-suffix">+</span>
+            <span class="hero__stat-label">Certificados</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-target="500">0</span>
+            <span class="hero__stat-suffix">h</span>
+            <span class="hero__stat-label">Aprendiendo</span>
           </div>
         </div>
       </div>
 
+      <!-- Avatar -->
       <div class="hero__visual">
+        <div class="hero__avatar-ring"></div>
         <div class="hero__avatar-container">
-          <!-- <img src="assets/img/avatar.png" alt="Mi foto" class="hero__avatar" /> -->
+          <img src="assets/img/avatar.jpg" alt="Daniela Sarene Daza Lorenzo" class="hero__avatar" />
+          <!-- Si no tienes foto aún, descomenta esto y comenta el img de arriba:
           <div class="hero__avatar-placeholder">
             <span class="hero__avatar-emoji">👾</span>
           </div>
-          <div class="hero__deco hero__deco--cat">🐱</div>
-          <div class="hero__deco hero__deco--turtle">🐢</div>
-          <div class="hero__deco hero__deco--music">🎸</div>
-          <div class="hero__deco hero__deco--code">💻</div>
+          -->
         </div>
+        <div class="hero__deco hero__deco--cat"    data-speed="8">🐱</div>
+        <div class="hero__deco hero__deco--turtle" data-speed="5">🐢</div>
+        <div class="hero__deco hero__deco--music"  data-speed="10">🎸</div>
+        <div class="hero__deco hero__deco--code"   data-speed="6">💻</div>
+        <div class="hero__deco hero__deco--game"   data-speed="9">🎮</div>
       </div>
 
-      <!-- Scroll indicator -->
       <div class="hero__scroll-indicator">
         <span>scroll</span>
         <div class="hero__scroll-line"></div>
       </div>
     </section>
 
-    <!-- ========== SOBRE MÍ ========== -->
+    <!-- ═══════════════════════════════════════
+         02 · SOBRE MÍ
+    ═══════════════════════════════════════ -->
     <section id="sobre-mi" class="about">
       <div class="section__header">
         <span class="section__tag">// 01</span>
         <h2 class="section__title">Sobre mí</h2>
+        <p class="section__subtitle">Un poco de mi historia y lo que me apasiona</p>
       </div>
 
-      <div class="about__content">
+      <div class="about__layout">
         <div class="about__text">
           <p>
-            Soy estudiante de <strong>Ingeniería de Sistemas en la UNHEVAL</strong>,
-            con curiosidad por todo lo que tiene que ver con tecnología.
-            Me emociona tanto programar como entender cómo funcionan las redes,
-            diseñar bases de datos o analizar sistemas.
+            Soy <strong>Daniela Sarene Daza Lorenzo</strong>, estudiante de
+            <strong>Ingeniería de Sistemas en la UNHEVAL</strong>. Me emociona
+            todo lo que tiene que ver con tecnología: programar, diseñar redes,
+            gestionar bases de datos o analizar sistemas complejos.
           </p>
           <p>
-            Fuera del campus, me encontrarás escuchando rock o pop,
-            jugando videojuegos en línea o cuidando a mis gatos y tortugas 🐱🐢.
-            Creo que la creatividad y la lógica van de la mano.
+            Fuera del campus, me encontrarás con mis gatos 🐱, cuidando mis tortugas 🐢,
+            escuchando rock o pop, o sumergida en algún videojuego online.
+            Creo que la creatividad y la lógica no solo coexisten — se potencian.
           </p>
           <p>
-            Todavía estoy definiendo mi especialidad, y eso me parece lo mejor:
-            tengo un mapa enorme por explorar.
+            Todavía estoy explorando mi especialidad, y eso me parece lo mejor:
+            tengo un mapa enorme por descubrir. 🗺️
           </p>
 
-          <!-- Botón CV también en About -->
-          <a href="assets/cv/cv.pdf" download class="btn btn--cv btn--cv-about">
-            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            Descargar mi CV
-          </a>
+          <!-- CV: Descargar + Vista previa -->
+          <div class="cv-preview-wrapper" style="margin-top:1.5rem">
+            <a href="assets/docs/cv.pdf" download class="btn btn--cv" aria-label="Descargar mi CV">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Descargar mi CV
+            </a>
+            <button class="btn--cv-preview" data-cv-preview="assets/docs/cv.pdf" aria-label="Vista previa CV">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Vista previa
+            </button>
+          </div>
         </div>
 
-        <div class="about__cards">
-          <div class="about__card reveal">
+        <div class="about__cards-grid">
+          <div class="about__card reveal" data-modal="universidad">
+            <div class="about__card-glow"></div>
             <span class="about__card-icon">🎓</span>
             <p class="about__card-label">Universidad</p>
             <p class="about__card-value">UNHEVAL</p>
+            <span class="about__card-hint">Click para más →</span>
           </div>
-          <div class="about__card reveal">
-            <span class="about__card-icon">📍</span>
+          <div class="about__card reveal" data-modal="carrera">
+            <div class="about__card-glow"></div>
+            <span class="about__card-icon">💡</span>
             <p class="about__card-label">Carrera</p>
-            <p class="about__card-value">Ing. de Sistemas</p>
+            <p class="about__card-value">Ing. Sistemas</p>
+            <span class="about__card-hint">Click para más →</span>
           </div>
-          <div class="about__card reveal">
+          <div class="about__card reveal" data-modal="hobbies">
+            <div class="about__card-glow"></div>
             <span class="about__card-icon">🎮</span>
-            <p class="about__card-label">Hobby</p>
-            <p class="about__card-value">Videojuegos online</p>
+            <p class="about__card-label">Hobbies</p>
+            <p class="about__card-value">Gaming & más</p>
+            <span class="about__card-hint">Click para más →</span>
           </div>
-          <div class="about__card reveal">
+          <div class="about__card reveal" data-modal="musica">
+            <div class="about__card-glow"></div>
             <span class="about__card-icon">🎵</span>
             <p class="about__card-label">Música</p>
             <p class="about__card-value">Rock & Pop</p>
+            <span class="about__card-hint">Click para más →</span>
+          </div>
+          <div class="about__card reveal" data-modal="tecfav">
+            <div class="about__card-glow"></div>
+            <span class="about__card-icon">⚙️</span>
+            <p class="about__card-label">Tech favorita</p>
+            <p class="about__card-value">Python & Docker</p>
+            <span class="about__card-hint">Click para más →</span>
+          </div>
+          <div class="about__card reveal" data-modal="animales">
+            <div class="about__card-glow"></div>
+            <span class="about__card-icon">🐢</span>
+            <p class="about__card-label">Animales</p>
+            <p class="about__card-value">Gatos & Tortugas</p>
+            <span class="about__card-hint">Click para más →</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== HABILIDADES ========== -->
+    <!-- MODALES de "Sobre mí" -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modal-universidad">
+        <button class="modal__close" aria-label="Cerrar">✕</button>
+        <div class="modal__icon">🎓</div>
+        <h3 class="modal__title">UNHEVAL</h3>
+        <p class="modal__subtitle">Universidad Nacional Hermilio Valdizán · Huánuco, Perú</p>
+        <p class="modal__desc">La UNHEVAL es una de las universidades más importantes del centro del Perú. Fundada en 1964, ofrece formación académica de calidad en diversas carreras. Aquí estudio Ingeniería de Sistemas, donde combino teoría y práctica para formarme como profesional de la tecnología.</p>
+        <div class="modal__tags"><span>Huánuco</span><span>Pública</span><span>Acreditada</span></div>
+        <a href="https://www.unheval.edu.pe/portal/" target="_blank" rel="noopener" class="modal__btn">Visitar sitio oficial →</a>
+      </div>
+      <div class="modal" id="modal-carrera">
+        <button class="modal__close" aria-label="Cerrar">✕</button>
+        <div class="modal__icon">💡</div>
+        <h3 class="modal__title">Ingeniería de Sistemas</h3>
+        <p class="modal__subtitle">Una carrera sin límites</p>
+        <p class="modal__desc">Ingeniería de Sistemas es una disciplina que combina matemáticas, lógica y creatividad para diseñar soluciones tecnológicas. Me apasiona porque abarca programación, redes, bases de datos, análisis de sistemas y mucho más.</p>
+        <div class="modal__tags"><span>Programación</span><span>Redes</span><span>Bases de datos</span><span>Análisis</span><span>DevOps</span></div>
+        <a href="https://webs.unheval.edu.pe/pag/sistemas" target="_blank" rel="noopener" class="modal__btn">Ver plan de estudios →</a>
+      </div>
+      <div class="modal" id="modal-hobbies">
+        <button class="modal__close" aria-label="Cerrar">✕</button>
+        <div class="modal__icon">🎮</div>
+        <h3 class="modal__title">Mis Hobbies</h3>
+        <p class="modal__subtitle">Lo que hago cuando no estoy codificando</p>
+        <p class="modal__desc">Me encantan los <strong>videojuegos online</strong> — la estrategia, la adrenalina y la comunidad que se forma. También disfruto escuchar música, cuidar a mis animales y explorar nuevas tecnologías por pura curiosidad.</p>
+        <div class="modal__tags"><span>🎮 Gaming online</span><span>🎸 Música</span><span>🐱 Mascotas</span><span>💻 Explorar tech</span></div>
+      </div>
+      <div class="modal" id="modal-musica">
+        <button class="modal__close" aria-label="Cerrar">✕</button>
+        <div class="modal__icon">🎵</div>
+        <h3 class="modal__title">Mi Música</h3>
+        <p class="modal__subtitle">Rock, Pop y todo lo que vibre bien</p>
+        <p class="modal__desc">La música es mi compañera de código. Me muevo entre el <strong>rock clásico</strong> para concentrarme y el <strong>pop</strong> para subir la energía. Desde Queen y AC/DC hasta artistas pop modernos.</p>
+        <div class="modal__tags"><span>🎸 Rock</span><span>🎤 Pop</span><span>🎧 Lo-fi</span><span>🥁 Classic rock</span></div>
+        <a href="https://open.spotify.com/playlist/6P0p1x7RK3g2lJyhE4mFu6?si=yrzhK3n2SvOoip5-gicEOQ" target="_blank" rel="noopener" class="modal__btn">Escuchar en Spotify →</a>
+      </div>
+      <div class="modal" id="modal-tecfav">
+        <button class="modal__close" aria-label="Cerrar">✕</button>
+        <div class="modal__icon">⚙️</div>
+        <h3 class="modal__title">Tecnologías Favoritas</h3>
+        <p class="modal__subtitle">Las herramientas que más disfruto usar</p>
+        <p class="modal__desc"><strong>Python</strong> por su versatilidad. <strong>Docker</strong> porque cambió la forma en que pienso el despliegue. <strong>Linux</strong> porque te hace entender de verdad cómo funciona una computadora.</p>
+        <div class="modal__tags"><span>🐍 Python</span><span>🐳 Docker</span><span>🐧 Linux</span><span>🌿 Git</span><span>🗄️ MySQL</span></div>
+      </div>
+      <div class="modal" id="modal-animales">
+        <button class="modal__close" aria-label="Cerrar">✕</button>
+        <div class="modal__icon">🐾</div>
+        <h3 class="modal__title">Mis Animales</h3>
+        <p class="modal__subtitle">Mis compañeros de vida</p>
+        <p class="modal__desc">Soy fanática de los <strong>gatos</strong> 🐱 — independientes, curiosos y con mucha personalidad. También tengo <strong>tortugas</strong> 🐢 que me enseñan que la constancia siempre gana.</p>
+        <div class="modal__tags"><span>🐱 Gatos</span><span>🐢 Tortugas</span><span>🐾 Pet lover</span></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         03 · HABILIDADES
+    ═══════════════════════════════════════ -->
     <section id="habilidades" class="skills">
       <div class="section__header">
         <span class="section__tag">// 02</span>
         <h2 class="section__title">Habilidades</h2>
+        <p class="section__subtitle">Tecnologías que manejo y estoy aprendiendo</p>
       </div>
 
-      <div class="skills__content">
-
+      <div class="skills__grid">
         <div class="skills__category reveal">
-          <h3 class="skills__category-title"><span>💻</span> Programación</h3>
-          <div class="skills__list">
+          <h3 class="skills__cat-title"><span class="skills__cat-icon">🎨</span> Frontend</h3>
+          <div class="skills__bars">
             <div class="skill-item" data-level="70">
-              <div class="skill-item__header">
-                <span class="skill-item__name">Python</span>
-                <span class="skill-item__percent">70%</span>
-              </div>
-              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
-            </div>
-            <div class="skill-item" data-level="60">
-              <div class="skill-item__header">
-                <span class="skill-item__name">Java</span>
-                <span class="skill-item__percent">60%</span>
-              </div>
+              <div class="skill-item__header"><span class="skill-item__name">HTML5 / CSS3</span><span class="skill-item__pct">70%</span></div>
               <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
             </div>
             <div class="skill-item" data-level="55">
-              <div class="skill-item__header">
-                <span class="skill-item__name">HTML / CSS</span>
-                <span class="skill-item__percent">55%</span>
-              </div>
+              <div class="skill-item__header"><span class="skill-item__name">JavaScript</span><span class="skill-item__pct">55%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
+            <div class="skill-item" data-level="30">
+              <div class="skill-item__header"><span class="skill-item__name">React (aprendiendo)</span><span class="skill-item__pct">30%</span></div>
               <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
             </div>
           </div>
         </div>
-
         <div class="skills__category reveal">
-          <h3 class="skills__category-title"><span>🌐</span> Redes & Sistemas</h3>
-          <div class="skills__list">
+          <h3 class="skills__cat-title"><span class="skills__cat-icon">⚙️</span> Backend</h3>
+          <div class="skills__bars">
             <div class="skill-item" data-level="65">
-              <div class="skill-item__header">
-                <span class="skill-item__name">Redes TCP/IP</span>
-                <span class="skill-item__percent">65%</span>
-              </div>
+              <div class="skill-item__header"><span class="skill-item__name">Python</span><span class="skill-item__pct">65%</span></div>
               <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
             </div>
-            <div class="skill-item" data-level="50">
-              <div class="skill-item__header">
-                <span class="skill-item__name">Linux</span>
-                <span class="skill-item__percent">50%</span>
-              </div>
-              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
-            </div>
-            <div class="skill-item" data-level="45">
-              <div class="skill-item__header">
-                <span class="skill-item__name">Docker</span>
-                <span class="skill-item__percent">45%</span>
-              </div>
-              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skills__category reveal">
-          <h3 class="skills__category-title"><span>🗄️</span> Bases de Datos</h3>
-          <div class="skills__list">
-            <div class="skill-item" data-level="60">
-              <div class="skill-item__header">
-                <span class="skill-item__name">MySQL</span>
-                <span class="skill-item__percent">60%</span>
-              </div>
+            <div class="skill-item" data-level="55">
+              <div class="skill-item__header"><span class="skill-item__name">Java</span><span class="skill-item__pct">55%</span></div>
               <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
             </div>
             <div class="skill-item" data-level="40">
-              <div class="skill-item__header">
-                <span class="skill-item__name">PostgreSQL</span>
-                <span class="skill-item__percent">40%</span>
-              </div>
+              <div class="skill-item__header"><span class="skill-item__name">C / C++</span><span class="skill-item__pct">40%</span></div>
               <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
             </div>
           </div>
         </div>
-
         <div class="skills__category reveal">
-          <h3 class="skills__category-title"><span>🛠️</span> Herramientas</h3>
-          <div class="skills__tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Packet Tracer</span>
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Linux CLI</span>
+          <h3 class="skills__cat-title"><span class="skills__cat-icon">🐳</span> DevOps</h3>
+          <div class="skills__bars">
+            <div class="skill-item" data-level="60">
+              <div class="skill-item__header"><span class="skill-item__name">Docker</span><span class="skill-item__pct">60%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
+            <div class="skill-item" data-level="70">
+              <div class="skill-item__header"><span class="skill-item__name">Git / GitHub</span><span class="skill-item__pct">70%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
+            <div class="skill-item" data-level="35">
+              <div class="skill-item__header"><span class="skill-item__name">Linux CLI</span><span class="skill-item__pct">35%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
           </div>
         </div>
+        <div class="skills__category reveal">
+          <h3 class="skills__cat-title"><span class="skills__cat-icon">🗄️</span> Bases de Datos</h3>
+          <div class="skills__bars">
+            <div class="skill-item" data-level="65">
+              <div class="skill-item__header"><span class="skill-item__name">MySQL</span><span class="skill-item__pct">65%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
+            <div class="skill-item" data-level="45">
+              <div class="skill-item__header"><span class="skill-item__name">PostgreSQL</span><span class="skill-item__pct">45%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skills__category reveal">
+          <h3 class="skills__cat-title"><span class="skills__cat-icon">🌐</span> Redes & Sistemas</h3>
+          <div class="skills__bars">
+            <div class="skill-item" data-level="60">
+              <div class="skill-item__header"><span class="skill-item__name">TCP/IP · Redes LAN</span><span class="skill-item__pct">60%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
+            <div class="skill-item" data-level="55">
+              <div class="skill-item__header"><span class="skill-item__name">Packet Tracer</span><span class="skill-item__pct">55%</span></div>
+              <div class="skill-item__bar"><div class="skill-item__fill"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skills__category reveal">
+          <h3 class="skills__cat-title"><span class="skills__cat-icon">🛠️</span> Herramientas & SO</h3>
+          <div class="skills__tags">
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Linux Mint</span>
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">Notion</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="skills__learning reveal">
+        <h3 class="skills__learning-title">
+          <span class="skills__learning-dot"></span>
+          Actualmente aprendiendo
+        </h3>
+        <div class="skills__learning-tags">
+          <span class="learning-tag">🐳 Docker avanzado</span>
+          <span class="learning-tag">🌐 Arquitectura de redes</span>
+          <span class="learning-tag">⚛️ React</span>
+          <span class="learning-tag">🔄 DevOps</span>
+          <span class="learning-tag">🏗️ Arquitectura empresarial</span>
+        </div>
       </div>
     </section>
 
-    <!-- ========== PROYECTOS ========== -->
-    <section id="proyectos" class="projects">
+    <!-- ═══════════════════════════════════════
+         04 · TRAYECTORIA
+    ═══════════════════════════════════════ -->
+    <section id="trayectoria" class="timeline">
       <div class="section__header">
         <span class="section__tag">// 03</span>
+        <h2 class="section__title">Mi Trayectoria</h2>
+        <p class="section__subtitle">El camino que me trajo hasta aquí</p>
+      </div>
+      <div class="timeline__track">
+        <div class="timeline__item reveal" data-side="left">
+          <div class="timeline__dot">🌱</div>
+          <div class="timeline__card">
+            <span class="timeline__date">2023</span>
+            <h3 class="timeline__event">Inicio en la UNHEVAL</h3>
+            <p class="timeline__desc">Comienzo mi carrera en Ingeniería de Sistemas. Primer contacto con programación estructurada, algoritmos y lógica computacional. También participé en la Unheval 3G junto a mi hermana.</p>
+            <div class="timeline__tags"><span>Algoritmos</span><span>C++</span><span>Matemáticas</span></div>
+          </div>
+        </div>
+        <div class="timeline__item reveal" data-side="right">
+          <div class="timeline__dot">🐍</div>
+          <div class="timeline__card">
+            <span class="timeline__date">2023 - 2024</span>
+            <h3 class="timeline__event">Python & bases de datos</h3>
+            <p class="timeline__desc">Aprendizaje de Python y fundamentos de bases de datos relacionales. Primeros proyectos universitarios reales.</p>
+            <div class="timeline__tags"><span>Python</span><span>MySQL</span><span>POO</span></div>
+          </div>
+        </div>
+        <div class="timeline__item reveal" data-side="left">
+          <div class="timeline__dot">🌐</div>
+          <div class="timeline__card">
+            <span class="timeline__date">2024</span>
+            <h3 class="timeline__event">Proyectos del DITT</h3>
+            <p class="timeline__desc">Proyectos como el Semáforo Inteligente y el Tacho inteligente. Primeros pasos en hardware y sistemas embebidos.</p>
+            <div class="timeline__tags"><span>Redes TCP/IP</span><span>HTML</span><span>CSS</span></div>
+          </div>
+        </div>
+        <div class="timeline__item reveal" data-side="right">
+          <div class="timeline__dot">🐳</div>
+          <div class="timeline__card">
+            <span class="timeline__date">2025</span>
+            <h3 class="timeline__event">Docker & DevOps</h3>
+            <p class="timeline__desc">Descubrimiento de Docker y la cultura DevOps. Dockerización de proyectos propios y gestión de repositorios con Git y GitHub.</p>
+            <div class="timeline__tags"><span>Docker</span><span>Git</span><span>GitHub</span><span>Linux</span></div>
+          </div>
+        </div>
+        <div class="timeline__item reveal" data-side="left">
+          <div class="timeline__dot">🚀</div>
+          <div class="timeline__card">
+            <span class="timeline__date">2025 — Presente</span>
+            <h3 class="timeline__event">Portafolio & crecimiento</h3>
+            <p class="timeline__desc">Construcción de este portafolio, exploración de React, arquitectura empresarial y seguir creciendo como desarrolladora integral.</p>
+            <div class="timeline__tags"><span>React</span><span>DevOps</span><span>Portfolio</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         05 · PROYECTOS
+    ═══════════════════════════════════════ -->
+    <section id="proyectos" class="projects">
+      <div class="section__header">
+        <span class="section__tag">// 04</span>
         <h2 class="section__title">Proyectos</h2>
+        <p class="section__subtitle">Cosas que construí, aprendí y rompí</p>
       </div>
 
       <div class="projects__filters">
         <button class="filter-btn filter-btn--active" data-filter="todos">Todos</button>
         <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="docker">Docker</button>
         <button class="filter-btn" data-filter="bd">Base de datos</button>
         <button class="filter-btn" data-filter="redes">Redes</button>
+        <button class="filter-btn" data-filter="uni">Universitario</button>
       </div>
 
       <div class="projects__grid">
 
-        <article class="project-card reveal" data-category="web">
-          <div class="project-card__image">
-            <div class="project-card__image-placeholder">🌐</div>
-            <div class="project-card__overlay">
-              <span>Ver más</span>
-            </div>
+        <!-- Proyecto 1: Portafolio -->
+        <article class="project-card reveal" data-category="web docker">
+          <div class="project-card__image"
+               data-gallery='[{"src":"assets/img/proj-portafolio.jpg","title":"Mi Portafolio Personal","caption":"Vista principal"}]'
+               data-gallery-title="Mi Portafolio Personal">
+            <img src="assets/img/proj-portafolio.jpg" alt="Portafolio personal" />
+            <div class="project-card__overlay"><span>Ver más</span></div>
+            <div class="project-card__status project-card__status--active">En producción</div>
           </div>
           <div class="project-card__body">
-            <span class="project-card__tag">Web</span>
-            <h3 class="project-card__title">Mi Portafolio</h3>
-            <p class="project-card__desc">
-              Portafolio personal construido con HTML, CSS y JavaScript.
-              Desplegado con Docker y alojado en GitHub.
-            </p>
-            <div class="project-card__techs">
-              <span>HTML</span><span>CSS</span><span>JS</span><span>Docker</span>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Web · Docker</span>
+              <span class="project-card__date">2026</span>
             </div>
+            <h3 class="project-card__title">Mi Portafolio Personal</h3>
+            <p class="project-card__desc">Portafolio cozy-gamer construido desde cero con HTML, CSS y JS. Dockerizado con Nginx y desplegado en GitHub.</p>
+            <div class="project-card__techs"><span>HTML</span><span>CSS</span><span>JS</span><span>Docker</span><span>Nginx</span></div>
             <div class="project-card__links">
-              <a href="#" class="project-card__link" target="_blank" rel="noopener">🔗 Ver proyecto</a>
-              <a href="#" class="project-card__link" target="_blank" rel="noopener">💾 GitHub</a>
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">🔗 Demo</a>
+              <a href="https://github.com/Aleinad19/Examen_U2" class="project-card__link" target="_blank" rel="noopener">💾 GitHub</a>
             </div>
           </div>
         </article>
 
-        <article class="project-card reveal" data-category="bd">
-          <div class="project-card__image">
-            <div class="project-card__image-placeholder">🗄️</div>
+        <!-- Proyecto 2: Inventario -->
+        <article class="project-card reveal" data-category="bd uni">
+          <div class="project-card__image"
+               data-gallery='[{"src":"assets/img/proj-inventario.jpg","title":"Sistema de Inventario","caption":"Vista principal"}]'
+               data-gallery-title="Sistema de Inventario">
+            <img src="assets/img/proj-inventario.jpg" alt="Sistema de Inventario" />
             <div class="project-card__overlay"><span>Ver más</span></div>
+            <div class="project-card__status project-card__status--done">Completado</div>
           </div>
           <div class="project-card__body">
-            <span class="project-card__tag">Base de datos</span>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Base de datos · Uni</span>
+              <span class="project-card__date">2024</span>
+            </div>
             <h3 class="project-card__title">Sistema de Inventario</h3>
-            <p class="project-card__desc">
-              Diseño e implementación de base de datos relacional
-              para gestión de inventario universitario.
-            </p>
-            <div class="project-card__techs">
-              <span>MySQL</span><span>Python</span>
-            </div>
+            <p class="project-card__desc">Base de datos relacional para gestión de inventario universitario. Incluye procedimientos almacenados, triggers y reportes.</p>
+            <div class="project-card__techs"><span>MySQL</span><span>Python</span><span>Tkinter</span></div>
             <div class="project-card__links">
               <a href="#" class="project-card__link" target="_blank" rel="noopener">💾 GitHub</a>
             </div>
           </div>
         </article>
 
-        <article class="project-card reveal" data-category="redes">
-          <div class="project-card__image">
-            <div class="project-card__image-placeholder">🌐</div>
+        <!-- Proyecto 3: Red LAN -->
+        <article class="project-card reveal" data-category="redes uni">
+          <div class="project-card__image"
+               data-gallery='[{"src":"assets/img/proj-red.jpg","title":"Simulación de Red LAN","caption":"Topología empresarial"}]'
+               data-gallery-title="Simulación de Red LAN">
+            <img src="assets/img/proj-red.jpg" alt="Simulación Red LAN" />
             <div class="project-card__overlay"><span>Ver más</span></div>
+            <div class="project-card__status project-card__status--done">Completado</div>
           </div>
           <div class="project-card__body">
-            <span class="project-card__tag">Redes</span>
-            <h3 class="project-card__title">Simulación de Red LAN</h3>
-            <p class="project-card__desc">
-              Diseño y simulación de una red LAN empresarial
-              con VLANs y routing estático en Packet Tracer.
-            </p>
-            <div class="project-card__techs">
-              <span>Packet Tracer</span><span>TCP/IP</span>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Redes · Uni</span>
+              <span class="project-card__date">2024</span>
             </div>
+            <h3 class="project-card__title">Simulación de Red LAN Empresarial</h3>
+            <p class="project-card__desc">Diseño y simulación de red LAN con VLANs, routing estático y DHCP en Cisco Packet Tracer.</p>
+            <div class="project-card__techs"><span>Packet Tracer</span><span>TCP/IP</span><span>VLANs</span></div>
+            <div class="project-card__links">
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">💾 GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 4: Semáforo -->
+        <article class="project-card reveal" data-category="uni">
+          <div class="project-card__image"
+               data-gallery='[{"src":"assets/img/proj-semaforo.jpg","title":"Semáforo Inteligente","caption":"Proyecto DITT"}]'
+               data-gallery-title="Semáforo Inteligente">
+            <img src="assets/img/proj-semaforo.jpg" alt="Semáforo inteligente" />
+            <div class="project-card__overlay"><span>Ver más</span></div>
+            <div class="project-card__status project-card__status--done">Completado</div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-card__tag">Uni</span>
+              <span class="project-card__date">2023</span>
+            </div>
+            <h3 class="project-card__title">Semáforo Inteligente</h3>
+            <p class="project-card__desc">Con sensores de movimiento, cámara inteligente y púas sobresalientes para quienes no acaten la luz roja.</p>
+            <div class="project-card__techs"><span>Python</span><span>JSON</span><span>CLI</span></div>
+            <div class="project-card__links">
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">💾 GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 5: Docker + Nginx -->
+        <article class="project-card reveal" data-category="docker">
+          <div class="project-card__image">
+            <div class="project-card__image-placeholder">🐳</div>
+            <div class="project-card__overlay"><span>Ver más</span></div>
+            <div class="project-card__status project-card__status--active">Activo</div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-card__tag">Docker</span>
+              <span class="project-card__date">2025</span>
+            </div>
+            <h3 class="project-card__title">Servidor Web con Docker + Nginx</h3>
+            <p class="project-card__desc">Contenedor Docker con Nginx sirviendo páginas estáticas. Configuración personalizada, volúmenes y exposición de puertos.</p>
+            <div class="project-card__techs"><span>Docker</span><span>Nginx</span><span>Shell</span></div>
+            <div class="project-card__links">
+              <a href="#" class="project-card__link" target="_blank" rel="noopener">💾 GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 6: Blog -->
+        <article class="project-card reveal" data-category="web uni">
+          <div class="project-card__image">
+            <div class="project-card__image-placeholder">📝</div>
+            <div class="project-card__overlay"><span>Ver más</span></div>
+            <div class="project-card__status project-card__status--wip">En progreso</div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-card__tag">Web</span>
+              <span class="project-card__date">2025</span>
+            </div>
+            <h3 class="project-card__title">Blog Personal Dev</h3>
+            <p class="project-card__desc">Blog donde comparto experiencias aprendiendo Docker, Linux y desarrollo web. Hecho con HTML y CSS puro, sin frameworks.</p>
+            <div class="project-card__techs"><span>HTML5</span><span>CSS3</span></div>
             <div class="project-card__links">
               <a href="#" class="project-card__link" target="_blank" rel="noopener">💾 GitHub</a>
             </div>
@@ -368,37 +687,225 @@
       </div>
     </section>
 
-    <!-- ========== CONTACTO ========== -->
+    <!-- ═══════════════════════════════════════
+         06 · CERTIFICACIONES  (c1 – c9)
+    ═══════════════════════════════════════ -->
+    <section id="certificaciones" class="certs">
+      <div class="section__header">
+        <span class="section__tag">// 05</span>
+        <h2 class="section__title">Certificaciones</h2>
+        <p class="section__subtitle">Lo que he aprendido y tengo para demostrarlo · Click para ver cada certificado</p>
+      </div>
+
+      <div class="certs__grid">
+
+        <!-- C1 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c1.jpeg"
+             data-cert-title="Python Essentials 1"
+             data-cert-caption="Cisco · NetAcad · 2024">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">🐍</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Cisco · NetAcad</p>
+            <h3 class="cert-card__title">Python Essentials 1</h3>
+            <p class="cert-card__date">2024</p>
+          </div>
+          <div class="cert-card__badge">Verificado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C2 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c2.jpeg"
+             data-cert-title="Networking Basics"
+             data-cert-caption="Cisco · NetAcad · 2024">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">🌐</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Cisco · NetAcad</p>
+            <h3 class="cert-card__title">Networking Basics</h3>
+            <p class="cert-card__date">2024</p>
+          </div>
+          <div class="cert-card__badge">Verificado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C3 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c3.jpeg"
+             data-cert-title="Docker para Desarrolladores"
+             data-cert-caption="Docker · Autoestudio · 2025">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">🐳</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Docker · Autoestudio</p>
+            <h3 class="cert-card__title">Docker para Desarrolladores</h3>
+            <p class="cert-card__date">2025</p>
+          </div>
+          <div class="cert-card__badge">Completado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C4 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c4.jpeg"
+             data-cert-title="Database Foundations"
+             data-cert-caption="Oracle · Academy · 2023">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">🗄️</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Oracle · Academy</p>
+            <h3 class="cert-card__title">Database Foundations</h3>
+            <p class="cert-card__date">2023</p>
+          </div>
+          <div class="cert-card__badge">Verificado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C5 — editar título/institución/fecha según corresponda -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c5.jpeg"
+             data-cert-title="Certificado 5"
+             data-cert-caption="Institución · 2024">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">📜</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Institución</p>
+            <h3 class="cert-card__title">Certificado 5</h3>
+            <p class="cert-card__date">2024</p>
+          </div>
+          <div class="cert-card__badge">Completado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C6 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c6.jpeg"
+             data-cert-title="Certificado 6"
+             data-cert-caption="Institución · 2024">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">📜</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Institución</p>
+            <h3 class="cert-card__title">Certificado 6</h3>
+            <p class="cert-card__date">2024</p>
+          </div>
+          <div class="cert-card__badge">Completado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C7 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c7.jpeg"
+             data-cert-title="Certificado 7"
+             data-cert-caption="Institución · 2025">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">📜</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Institución</p>
+            <h3 class="cert-card__title">Certificado 7</h3>
+            <p class="cert-card__date">2025</p>
+          </div>
+          <div class="cert-card__badge">Completado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C8 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c8.jpeg"
+             data-cert-title="Certificado 8"
+             data-cert-caption="Institución · 2025">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">📜</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Institución</p>
+            <h3 class="cert-card__title">Certificado 8</h3>
+            <p class="cert-card__date">2025</p>
+          </div>
+          <div class="cert-card__badge">Completado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+        <!-- C9 -->
+        <div class="cert-card reveal"
+             data-cert-img="assets/certs/c9.jpeg"
+             data-cert-title="Certificado 9"
+             data-cert-caption="Institución · 2025">
+          <div class="cert-card__glow"></div>
+          <div class="cert-card__logo">📜</div>
+          <div class="cert-card__body">
+            <p class="cert-card__institution">Institución</p>
+            <h3 class="cert-card__title">Certificado 9</h3>
+            <p class="cert-card__date">2025</p>
+          </div>
+          <div class="cert-card__badge">Completado</div>
+          <div class="cert-card__preview-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver certificado
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         07 · CONTACTO
+    ═══════════════════════════════════════ -->
     <section id="contacto" class="contact">
       <div class="section__header">
-        <span class="section__tag">// 04</span>
+        <span class="section__tag">// 06</span>
         <h2 class="section__title">Contacto</h2>
+        <p class="section__subtitle">¿Tienes un proyecto, una idea o simplemente quieres saludar?</p>
       </div>
 
       <div class="contact__content">
         <div class="contact__text">
-          <p>¿Quieres colaborar, tienes algún proyecto o simplemente quieres saludar?
-          ¡Escríbeme! 💌</p>
-
+          <p>Estoy abierta a colaboraciones, proyectos universitarios, oportunidades de aprendizaje y nuevas conexiones. ¡Escríbeme! 💌</p>
           <div class="contact__socials">
-            <a href="https://github.com/Aleinad19" class="contact__social-link reveal" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              GitHub
+            <a href="https://github.com/Aleinad19" class="contact__social-link reveal" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub — Aleinad19
             </a>
-            <a href="https://www.linkedin.com/in/daniela-sarene-daza-lorenzo-758678352/" class="contact__social-link reveal" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              LinkedIn
+            <a href="https://www.linkedin.com/in/daniela-sarene-daza-lorenzo-758678352/" class="contact__social-link reveal" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn — Daniela Daza
             </a>
-            <a href="mailto:dazalorenzodanielasarene@gmail.com" class="contact__social-link reveal" aria-label="Email">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
-              Email
+            <a href="mailto:dazalorenzodanielasarene@gmail.com" class="contact__social-link reveal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              dazalorenzodanielasarene@gmail.com
+            </a>
+            <a href="https://www.instagram.com/aleinad1918/" class="contact__social-link reveal" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 1.5h8.5A4.24 4.24 0 0 1 20.5 7.75v8.5a4.24 4.24 0 0 1-4.25 4.25h-8.5A4.24 4.24 0 0 1 3.5 16.25v-8.5A4.24 4.24 0 0 1 7.75 3.5zm8.75 1.25a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5A3.5 3.5 0 1 1 8.5 12 3.49 3.49 0 0 1 12 8.5z"/></svg>
+              Instagram — Aleinad1918
+            </a>
+            <a href="https://discord.gg/Uzkaa9cTk" class="contact__social-link reveal" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.345-.404.81-.554 1.17a18.27 18.27 0 0 0-5.661 0c-.15-.36-.368-.825-.56-1.17a19.736 19.736 0 0 0-4.438 1.372C1.533 9.046.653 13.58 1.099 18.057a19.9 19.9 0 0 0 5.993 3.03c.484-.66.913-1.357 1.287-2.092a12.89 12.89 0 0 1-2.024-.978c.17-.123.336-.252.496-.387 3.909 1.84 8.15 1.84 12.012 0 .16.135.326.264.496.387a12.83 12.83 0 0 1-2.03.981c.374.732.803 1.429 1.287 2.089a19.848 19.848 0 0 0 6.003-3.03c.523-5.177-.89-9.67-3.682-13.688zM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.418 0-1.334.955-2.419 2.157-2.419 1.212 0 2.167 1.095 2.157 2.419 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.182 0-2.157-1.085-2.157-2.418 0-1.334.955-2.419 2.157-2.419 1.212 0 2.167 1.095 2.157 2.419 0 1.333-.945 2.418-2.157 2.418z"/></svg>
+              Discord — Aleinad1918
             </a>
           </div>
         </div>
@@ -420,9 +927,7 @@
               <textarea id="message" name="message" class="form-input form-textarea" placeholder="¿En qué puedo ayudarte?" rows="5" required></textarea>
               <span class="form-error" id="messageError"></span>
             </div>
-            <button type="submit" class="btn btn--primary btn--full">
-              Enviar mensaje 🚀
-            </button>
+            <button type="submit" class="btn btn--primary btn--full">Enviar mensaje 🚀</button>
             <div class="form-success" id="formSuccess" hidden>
               ¡Mensaje enviado! Te responderé pronto 🐱✨
             </div>
@@ -433,20 +938,94 @@
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
   <footer class="footer">
-    <div class="footer__content">
-      <p class="footer__text">
-        Hecho con 🐱 y mucho café ·
-        <span id="currentYear"></span>
-      </p>
-      <p class="footer__sub">
-        Diseñado y desarrollado por <strong>Daniela Daza</strong>
-      </p>
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">🐱 <span>daza<span class="footer__logo-accent">.dev</span></span></div>
+        <p class="footer__tagline">Estudiante · Desarrolladora · Gamer</p>
+        <p class="footer__uni">UNHEVAL · Ingeniería de Sistemas</p>
+      </div>
+      <div class="footer__nav">
+        <h4 class="footer__nav-title">Navegación</h4>
+        <ul class="footer__nav-list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#habilidades">Skills</a></li>
+          <li><a href="#trayectoria">Timeline</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#certificaciones">Certificaciones</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__tech">
+        <h4 class="footer__nav-title">Construido con</h4>
+        <div class="footer__tech-tags">
+          <span>HTML</span><span>CSS</span><span>JS</span>
+          <span>Docker</span><span>Nginx</span><span>GitHub</span>
+        </div>
+      </div>
+      <div class="footer__socials-col">
+        <h4 class="footer__nav-title">Encuéntrame</h4>
+        <div class="footer__socials">
+          <a href="https://github.com/Aleinad19" target="_blank" rel="noopener" class="footer__social">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/daniela-sarene-daza-lorenzo-758678352/" target="_blank" rel="noopener" class="footer__social">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:dazalorenzodanielasarene@gmail.com" class="footer__social">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© <span id="currentYear"></span> · Daniela Sarene Daza Lorenzo · Hecho con 🐱 y mucho café</p>
+      <p class="footer__cozy"><span class="footer__cozy-tag">// stay cozy, keep coding 🎮</span></p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ═══════════════════════════════════════
+       LIGHTBOX UNIVERSAL
+  ═══════════════════════════════════════ -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox">
+      <div class="lightbox__header">
+        <div>
+          <span class="lightbox__title"   id="lightboxTitle"></span>
+          <span class="lightbox__caption" id="lightboxCaption"></span>
+        </div>
+        <div class="lightbox__actions">
+          <a id="lightboxDl" href="#" download class="lightbox__btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Descargar
+          </a>
+          <button class="lightbox__close" id="lightboxClose" aria-label="Cerrar">✕</button>
+        </div>
+      </div>
+      <!-- Imagen -->
+      <div class="lightbox__img-wrapper" id="lightboxImgWrap">
+        <img id="lightboxImg" src="" alt="Vista previa" class="lightbox__img" />
+      </div>
+      <!-- PDF -->
+      <div class="lightbox__pdf-wrapper" id="lightboxPdfWrap" style="display:none">
+        <iframe id="lightboxPdf" src="" title="Vista previa PDF" class="lightbox__pdf"></iframe>
+      </div>
+      <!-- Dots de galería -->
+      <div class="lightbox__nav" id="lightboxNav" style="display:none"></div>
+    </div>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
