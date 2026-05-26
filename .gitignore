@@ -1,0 +1,12 @@
+# Dependencias
+node_modules/
+
+# Docker
+.docker/
+
+# VS Code
+.vscode/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
